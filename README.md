@@ -1,2 +1,2 @@
 # Brian Santana
-A game of tic tac toe against an ai in python
+A text adventure game made in python
