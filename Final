@@ -1,0 +1,685 @@
+import time
+
+op_A = ["A", "a"]
+op_B = ["B", "b"]
+op_C = ["C", "c"]
+op_D = ["D", "d"]
+op_E = ["E", "e"]
+yes = ["Y", "y", "yes"]
+no = ["N", "n", "no"]
+
+Rock_core = 0
+Iron_core = 0
+Ice_core = 0
+Incantation_of_rock = 0
+Incantation_of_steel = 0
+Incantation_of_ice = 0
+small_ball = 0
+help = ("Use A,B,C,D,E or reply with a yes or no")
+
+def intro():
+  print ("You wake up in the middle of nowhere with no memory of the past events "
+  "You look around and see 5 towers in the distance although one seems abandoned"
+  ". What shall you do:")
+  time.sleep(1)
+  print ("""""  A. Enter brown tower
+  B. Enter grey tower
+  C. Enter blue tower
+  D. Enter ruined tower
+  E. Enter white tower """"")
+  choice = input(">>> ")
+  if choice in op_A:
+    option_rock()
+  elif choice in op_B:
+    option_steel()
+  elif choice in op_C:
+    option_ice()
+  elif choice in op_D:
+    option_ruin()
+  elif choice in op_E:
+    option_white()
+
+  else:
+    print (help)
+    intro()
+
+def option_rock():
+  print ("You enter the tower and notice the interior looks like a cave made of a crystal ")
+  time.sleep(1)
+  print ("""  A. Explore
+  B. Leave""")
+  choice = input(">>")
+  if choice in op_A:
+    option_rockf1()
+  elif choice in op_B:
+    print ("You attempt to exit the tower only to be crushed by the weight of the door.")
+    time.sleep(1)
+    intro()
+  else:
+    print(help)
+    option_rock()
+
+
+def option_rockf1():
+  print ("As the crystals guide you, you reach the first floor a room filled with crystal stalagmites and stalactites :")
+  time.sleep(1)
+  print ("""  A. Walk through
+  B. Explore""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You walk across the room unharmed and continue traversing the tower")
+    option_rockf2()
+  elif choice in op_B:
+    print ("You find nothing of value and continue.")
+    option_rockf2()
+  else:
+    print(help)
+    option_rock()
+
+def option_rockf2():
+  print (" A small rock beast appears not much bigger than a soccer ball "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Kick it
+  B. Leave it alone
+  C. Run""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You kick it across the room shattering the poor thing to pieces causing the door to open ")
+    option_rockf3()
+  elif choice in op_B:
+    print ("The beast notices you and decides to roll up and charge you it hurls into a ball"
+           "gaining enough speed to launch itself into your chest cavity.")
+    intro()
+  elif choice in op_C:
+    print ("You run down a flight of stairs only to trip on a pebble and snap your neck.")
+    intro()
+  else:
+    print(help)
+    option_rockf2()
+
+def option_rockf3():
+  print (" As you go lower the stairs begin to have rocks embedded between the steps."
+         "A field of boulders appears you enter the room they seem to be making an odd shape.   "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Realign to make an h
+  B. Realign to make a hexagon
+  C. Realign to make a cross""")
+  choice = input(">>")
+  if choice in op_A:
+    print(" The door opens itself ")
+    option_rockf4()
+  elif choice in op_B:
+    print ("Nothing happens")
+    option_rockf3()
+  elif choice in op_C:
+    print ("Nothing happens.")
+    option_rockf3()
+  else:
+    print(help)
+    option_rockf3()
+
+def option_rockf4():
+  print (" You descend deeper into the tower and find a large rhinoceros covered in armored plating walking around the door "
+         "he notices you and prepares an attack "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Wait and see
+  B. Get behind cover
+  C. Run towards him""")
+  choice = input(">>")
+  if choice in op_A:
+    print("The beast finishes charging his attack and shoots a massive boulder at you crushing your body ")
+    intro()
+  elif choice in op_B:
+    print ("You manage to get behind cover as he starts launching a barrage of rock blasts "
+           ",you manage to sneak by him while he searches for you after leveling half of the field ")
+    option_rockf5()
+  elif choice in op_C:
+    print ("You immediately get annihilated by his rock blast")
+    intro()
+  else:
+    print(help)
+    option_rockf4()
+
+def option_rockf5():
+  print ("\n After avoiding the plated rhinoceros it begins to get darker until you get to the next room"
+         "a room full of light up circular floor panels light up briefly then deactivate again  "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Activate them in a hexagon formation
+  B. Activate them in an h formation
+  C. Activate them in a cross formation""")
+  choice = input(">>")
+  if choice in op_A:
+    print("Nothing happened ")
+    option_rockf5()
+  elif choice in op_B:
+    print ("The door lights up and opens ")
+    option_rockf6()
+  elif choice in op_C:
+    print ("Nothing happened")
+    option_rockf5()
+  else:
+    print(help)
+    option_rockf6()
+
+def option_rockf6():
+  print ("\n You descend to the last floor to be greeted by a rock golem the door closes behind you and he awakens "
+         "with his eyes glowing red and prepares an attack "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Wait and see
+  B. Get behind cover
+  C. Run towards him""")
+  choice = input(">>")
+  if choice in op_A:
+    print("He finishes charging up his arm and punches the ground you see the spikes coming towards you "
+          "and manage to get out of harms way")
+    option_rockf7()
+  elif choice in op_B:
+    print ("Your cover is useless as he begins to create a rockslide with the walls and rocks begin to fall  ")
+    intro()
+  elif choice in op_C:
+    print ("He proceeds to punch the ground causing a line of spikes to emerge ")
+    option_rockf7()
+  else:
+    print(help)
+    option_rockf6()
+
+def option_rockf7():
+  print ("\n Annoyed his attack misses the golem starts to cause the ground to tremble "
+         "with his eyes glowing red he prepares another attack "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Drop kick him
+  B. Punch him
+  C. Stand still""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You managed to drop kick him with enough strength to knock his balance and imaple him with his own spikes  "
+          "and manage to get out of harms way")
+    Rock_core = 1
+    option_rockf8()
+  elif choice in op_B:
+    print ("You break your hand trying to stop him as he fires a beam of light at you disintegrating you  ")
+    intro()
+  elif choice in op_C:
+    print ("The ground continues to tremble and begins to split open you end up falling into the casm the golem created ")
+    intro()
+  else:
+    print(help)
+    option_rockf7()
+
+def option_rockf8():
+  print ("With the golem defeated you've earned the earth core behind where the golem was standing was a teleporter\n"
+         "beside it what seems to be an incantation of sorts "
+         "Do you wish to read it Y/N:")
+  time.sleep(1)
+  choice = input(">>")
+  if choice in yes:
+    print("You manage to read the incantation and learned it")
+    Incantation_of_rock = 1
+    intro()
+  elif choice in no:
+    print ("You took the teleporter back to where you started ")
+    Incantation_of_rock = 0
+    intro()
+  else:
+    print(help)
+    option_rockf8()
+
+def option_steel():
+  print ("You enter the tower and notice the interior looks like its made of sheet metal ")
+  time.sleep(1)
+  print ("""  A. Explore
+  B. Leave""")
+  choice = input(">>")
+  if choice in op_A:
+    print ("You manage to find an elevator shaft the panel only has 4 buttons "
+     "open/close and up/down you decide to take it down ")
+    option_steelf1()
+  elif choice in op_B:
+    print ("You attempt to exit the tower only to be crushed by the weight of the door.")
+    time.sleep(1)
+    intro()
+  else:
+    print(help)
+    option_steel()
+
+
+def option_steelf1():
+  print ("As the elevator descends you begin to hear sounds "
+         "What will you do :")
+  time.sleep(1)
+  print ("""  A. Call out
+  B. Stay quiet""")
+  choice = input(">>")
+  if choice in op_A:
+    print("A huge bat begins to tear through the elevator shaft alarming you but before you can make a move"
+          "the bat slits your throat and begins to consume you ")
+    intro()
+  elif choice in op_B:
+    print ("You stay quiet and whatever was there disappeared.")
+    option_steelf2()
+  else:
+    print(help)
+    option_steelf1()
+
+def option_steelf2():
+  print ("The elevator stops and opens its the door  "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Walk out
+  B. Stay on""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You hop off the elevator for it to close and go down by it self ")
+    option_steelf3()
+  elif choice in op_B:
+    print ("The elevator shaft closes and speeds to bottom causing you to be crushed.")
+    intro()
+  else:
+    print(help)
+    option_steelf2()
+
+def option_steelf3():
+  print (" As you descend the steel tower you run into a room with steel cylinders in an odd formation    "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Realign to make an h
+  B. Realign to make a hexagon
+  C. Realign to make a cross""")
+  choice = input(">>")
+  if choice in op_A:
+    print(" Nothing happens")
+    option_steelf3()
+  elif choice in op_B:
+    print ("The door opens itself ")
+    option_steelf4()
+  elif choice in op_C:
+    print ("Nothing happens.")
+    option_steelf3()
+  else:
+    print(help)
+    option_steelf3()
+
+def option_steelf4():
+  print ("As you descend the stairs you begin to hear barking once you reach the next floor you see a dog standing"
+         "with steel implanted in its fists"
+         "he notices you and prepares to fight "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Wait and see
+  B. Get behind cover
+  C. Run towards him""")
+  choice = input(">>")
+  if choice in op_A:
+    print("He watches you closely until he deems you not a threat and shows you the way down the stairs ")
+    option_steelf5()
+  elif choice in op_B:
+    print ("You manage to get behind cover but the dog begins to charge an aura sphere and launches it at you")
+    intro()
+  elif choice in op_C:
+    print ("You immediately get annihilated by his fist")
+    intro()
+  else:
+    print(help)
+    option_steelf4()
+
+def option_steelf5():
+  print (" After the dog shows you the way it begins to get darker until you get to the next room"
+         "a room full of light up circular floor panels light up briefly then deactivate again  "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Activate them in a hexagon formation
+  B. Activate them in an h formation
+  C. Activate them in a cross formation""")
+  choice = input(">>")
+  if choice in op_A:
+    print("The door lights up and opens ")
+    option_steelf6()
+  elif choice in op_B:
+    print ("Nothing happened")
+    option_steelf5()
+  elif choice in op_C:
+    print ("Nothing happened")
+    option_steelf5()
+  else:
+    print(help)
+    option_steelf5()
+
+def option_steelf6():
+  print (" You descend to the last floor to be greeted by a steel golem the door closes behind you and he awakens "
+         "with his eyes glowing red and waits for your next move "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Wait and see
+  B. Get behind cover
+  C. Run towards him""")
+  choice = input(">>")
+  if choice in op_A:
+    print("He continues to wait for your next move")
+    option_steelf7()
+  elif choice in op_B:
+    print ("Disgusted he charges his arm into the ground causing steel spikes to form and impale you  ")
+    intro()
+  elif choice in op_C:
+    print ("He proceeds to charge a beam and blast you to smithereens  ")
+    intro()
+  else:
+    print(help)
+    option_steelf6()
+
+def option_steelf7():
+  print (" As he continues to watch he starts to cause the ground to tremble\n "
+         "with his eyes glowing red he prepares for your reaction\n "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Drop kick him
+  B. Punch him
+  C. Kneel""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You managed to drop kick him but at the cost of your legs shattering from his hard body dissapointed "
+          "the golem leaves you there to bleed out")
+    intro()
+  elif choice in op_B:
+    print ("You break your hand trying to stop him as he fires a beam of light at you disintegrating you  ")
+    intro()
+  elif choice in op_C:
+    print ("You kneel on one leg with your arms crossed as if preparing for the attack impressed the golem "
+           "gives you his core and points to the incantation then shuts down ")
+    Steel_core = 1
+    option_steelf8()
+  else:
+    print(help)
+    option_steelf7()
+
+def option_steelf8():
+  print ("With the golem defeated you've earned the steel core behind where the golem was standing was a teleporter\n"
+         "beside it what seems to be an incantation of sorts\n "
+         "Do you wish to read it Y/N:")
+  time.sleep(1)
+
+  choice = input(">>")
+  if choice in yes:
+    print("You manage to read the incantation and learned it")
+    Incantation_of_steel = 1
+    intro()
+  elif choice in no:
+    print ("You took the teleporter back to where you started ")
+    Incantation_of_steel = 0
+    intro()
+  else:
+    print(help)
+    option_steelf8()
+
+def option_ice():
+  print ("You enter the tower and notice the interior is just an ice cavern and seems to be smaller ")
+  time.sleep(1)
+  print ("""  A. Explore
+  B. Leave""")
+  choice = input(">>")
+  if choice in op_A:
+    print ("You manage to find an elevator shaft the panel only has 4 buttons "
+     "open/close and up/down you decide to take it down ")
+    option_icef1()
+  elif choice in op_B:
+    print ("You attempt to exit the tower only to be impaled by the ice.")
+    time.sleep(1)
+    intro()
+  else:
+    print(help)
+    option_ice()
+
+
+def option_icef1():
+  print ("As you begin to descend to the towers first floor you see a slide and a stairway of ice appear "
+         "What will you do :")
+  time.sleep(1)
+  print ("""  A. Take the stairs
+  B. Take the slide""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You take the stairs but after a few steps down it begins to collapse ")
+    intro()
+  elif choice in op_B:
+    print ("You take the slide and make it down to the next floor.")
+    option_icef2()
+  else:
+    print(help)
+    option_icef1()
+
+def option_icef2():
+  print (" The slide leeds you down to the next floor pirched on top of the doorway a wild ice bird  "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Walk past
+  B. Throw Ice chunks""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You walk right by it but got bird poop on your shoulder")
+    option_icef3()
+  elif choice in op_B:
+    print ("The bird becomes aggravated and shoots an ice beam at you.")
+    intro()
+  else:
+    print(help)
+    option_icef2()
+
+def option_icef3():
+  print (" As you reach the next floor you see some giant ice cones all around the place  "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Realign to make an h
+  B. Realign to make a hexagon
+  C. Realign to make a cross""")
+  choice = input(">>")
+  if choice in op_A:
+    print(" Nothing happens ")
+    option_icef3()
+  elif choice in op_B:
+    print ("Nothing happens")
+    option_icef3()
+  elif choice in op_C:
+    print ("The door opens itself.")
+    option_icef4()
+  else:
+    print(help)
+    option_icef3()
+
+def option_icef4():
+  print (" After completing the cone puzzle it begins to get darker until you get to the next room."
+         "A room full of light up circular floor panels light up briefly then deactivate again  "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Activate them in a hexagon formation
+  B. Activate them in an h formation
+  C. Activate them in a cross formation""")
+  choice = input(">>")
+  if choice in op_A:
+    print("Nothing happened")
+    option_icef4()
+  elif choice in op_B:
+    print ("Nothing happened")
+    option_icef4()
+  elif choice in op_C:
+    print ("The door lights up and opens")
+    option_icef5()
+  else:
+    print(help)
+    option_icef4()
+
+def option_icef5():
+  print (" You descend to the last floor to be greeted by an ice golem the door closes behind you and he awakens "
+         "with his eyes glowing bright yellow he dosen't wait for you and fires an ice beam "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Wait
+  B. Dodge
+  C. Slip""")
+  choice = input(">>")
+  if choice in op_A:
+    print("The ice beam freezes you in place and kills you")
+    intro()
+  elif choice in op_B:
+    print ("You made an attempt to dodge but slipped onto and directly into the Ice beam ")
+    intro()
+  elif choice in op_C:
+    print ("You slide across the floor reaching him   ")
+    option_icef6()
+  else:
+    print(help)
+    option_icef5()
+
+def option_icef6():
+  print (" He immediatley starts charge another Ice beam \n "
+         "with his eyes glowing red he prepares for your reaction\n "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Drop kick him
+  B. Punch him
+  C. Kneel""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You managed to bounce off the wall and land a drop kick that shatters him")
+    Ice_core = 1
+    option_icef7()
+  elif choice in op_B:
+    print ("Your hand becomes frozen solid and begins to freeze the rest of your body.  ")
+    intro()
+  elif choice in op_C:
+    print ("You kneel on one leg with your arms crossed as if preparing for the attack "
+           "not phased the ice beam lands and freezes your entire body  ")
+    intro()
+  else:
+    print(help)
+    option_icef6()
+
+def option_icef7():
+  print ("With the golem defeated you've earned the Ice core behind where the golem was standing was a teleporter\n"
+         "beside it what seems to be an incantation of sorts\n "
+         "Do you wish to read it Y/N:")
+  time.sleep(1)
+
+  choice = input(">>")
+  if choice in yes:
+    print("You manage to read the incantation and learned it")
+    Incantation_of_ice = 1
+    intro()
+  elif choice in no:
+    print ("You took the teleporter back to where you started ")
+    Incantation_of_ice = 0
+    intro()
+  else:
+    print(help)
+    option_icef7()
+
+def option_ruin():
+  print ("You enter the abandoned tower to be greeted by everything being covered in vines dust and debris"
+  "and even see a small ball on a pedastool "
+         "Take it Y/N ")
+  choice = input(">>> ")
+  if choice in yes:
+    small_ball = 1
+    option_ruinf1()
+
+  elif choice in no:
+    small_ball = 0
+    intro()
+  else:
+    print(help)
+    option_ruin()
+
+
+def option_ruinf1():
+  print ("After taking the ball the podium sinks into the floor only for a door to open "
+         "Do you wish to prceed Y/N")
+  choice = input(">>> ")
+  if choice in yes:
+    option_ruinf10()
+
+  elif choice in no:
+    print('You go back to to the central hub')
+    intro()
+def option_ruinf10():
+  print (" You walk in to be greeted by a rod of lightning shot down from the sky  \n "
+         "The nameless king appears\n "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Ember up
+  B. Parry
+  C. Praise the sun""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You defeat the nameless king only to take his place and become a lord of cinder")
+    intro()
+  elif choice in op_B:
+    print ("Due to your lack of sword skills you whiff your parry and get decimated.  ")
+    intro()
+  elif choice in op_C:
+    print ("You wait for your demise as you praise the sun and embrace its warmth ")
+    intro()
+  else:
+    print(help)
+    option_ruinf10()
+
+def option_white():
+  print ("You enter the tower then notice the interior is just plain white tiles\n "
+         "and an elevator shaft waiting to go to the top")
+  time.sleep(1)
+  print ("""  A. Take the elevator
+  B. Leave""")
+  choice = input(">>")
+  if choice in op_A:
+    print("The beast awaits")
+    option_whitef1()
+  elif choice in op_B:
+    print ("You exit the tower safely.")
+    time.sleep(1)
+    intro()
+  else:
+   print(help)
+  option_white()
+
+
+def option_whitef1():
+  print ("You ascend the tower to fight the final boss the blood starved beast comes out \n "
+         "screeching to the heavens:")
+  time.sleep(1)
+  print ("""  A. Channel
+  B. Fight """)
+  choice = input(">>")
+  if choice in op_A:
+    print(" The blood starved beast is dead ")
+    intro()
+  elif choice in op_B:
+    print ("You stay quiet and whatever was there disappeared.")
+    option_icef2()
+  else:
+    print(help)
+    option_whitef1()
+
+def option_whitef2():
+  print (" The beast has been slain but another door is behind him it seems to have similar markings\n"
+         "to the golems there is also a teleport near by to take you home \n "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Incantation
+  B. Teleport home""")
+  choice = input(">>")
+  if choice in op_A:
+    print("print Reggigigas has been sealed")
+    gg()
+  elif choice in op_B:
+    print ("You take the teleporter home and go back to your normal life.")
+    gg()
+  else:
+    print(help)
+    option_whitef2()
+
+def gg():
+  print("Congratulations you beat the game")
+intro()
