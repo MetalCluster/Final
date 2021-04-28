@@ -109,7 +109,7 @@ def option_rockf3():
   choice = input(">>")
   if choice in op_A:
     print(" The door opens itself ")
-    option_rockf4()
+    option_rockfd()
   elif choice in op_B:
     print ("Nothing happens")
     option_rockf3()
@@ -119,6 +119,116 @@ def option_rockf3():
   else:
     print(help)
     option_rockf3()
+
+def option_rockd():
+  print (" As you go through the door you see a grand passageway linking a group of doorways."
+         "There's a multitude of doorways but only two stand out the most being a doorway made of rock the other of steel.   "
+         "One seems to be a passage going straight down the tower the other to the same place but the buttons signify it can go lower"
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Go through rock passage
+  B. Take the elevator down
+  C. Try another door""")
+  choice = input(">>")
+  if choice in op_A:
+    print(" You take the rock passageway down")
+    option_rockf4()
+  elif choice in op_B:
+    print ("You take the elevator down")
+    option_rockul()
+  elif choice in op_C:
+    print ("You go through to see and find .")
+    option_rockf3()
+  else:
+    print(help)
+    option_rockd()
+
+def option_rockul():
+  print (" You've gone down to the bottom floor only to find an aquatic research lab."
+         "It seems abbandoned by the looks of the equipment and debris laying around.   "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Go forward 
+  B. Search around""")
+  choice = input(">>")
+  if choice in op_A:
+    print(" You proceed on to the next door ")
+    option_rockul2()
+  elif choice in op_B:
+    print ("You look around only to find illegible documents from the mixture of ink and water so you decide to move forward")
+    option_rockul2()
+  
+  else:
+    print(help)
+    option_rockul()
+
+
+def option_rockul2():
+  print (" As you go through the lab you see an enormous water tank seemingly able to fit a whale or larger ."
+         "Oddly enough you see nothing in the tank but your hear something hitting the glass with increasing strength each time.   "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Make haste to the next door
+  B. Wait and look into the tank""")
+  choice = input(">>")
+  if choice in op_A:
+    print(" You run across the room soon after you hear a puncturing sound come from the tank water begins to slowly flood the room ")
+    option_rockul3()
+  elif choice in op_B:
+    print ("You see an small shark with scars all over its body as it rams into the glass puncturing it causing the water to start flooding the room"
+           "You begin to hear a crackling sound and to your dismay you see an exposed wire start to fall onto the floor into the puddle next to you. ")
+    intro()
+  else:
+    print(help)
+    option_rockul2()
+
+
+def option_rockul3():
+  print (" Water begins to flood the previous room but that won't last for much longer as you begin to see water pour over into the current room."
+         "You see a button next to the door and a control station behind not much further from it.   "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Search the control station
+  B. Press the button
+  C. Run""")
+  choice = input(">>")
+  if choice in op_A:
+    print(" As you search the station you find the button only for the button to be jammed and roaring waters consume your body")
+    intro()
+  elif choice in op_B:
+    print ("The switch is broken due to numerous exposed wires hanging from the ceiling")
+    intro()
+  elif choice in op_C:
+    print ("You reach the next door and hit the emergency seal button sealing the previous door.")
+    option_rockf3()
+  else:
+    print(help)
+    option_rockf3()
+
+
+
+def option_rockul4():
+  print (" You look around you to see an elevator shaft that goes upwards ."
+         "You look around and see documents as well as blue orb in a containment unit.   "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Realign to make an h
+  B. Read through documents""")
+  choice = input(">>")
+  if choice in op_A:
+    print(" You proceed up with no issue ")
+    option_rockf6()
+  elif choice in op_B:
+    print ("You find out the orb belongs to the ancient see god kyogre used to control him and even give the wielder some of his power"
+           "After learning the abilities of the stone you decide to take it to aid on your journey.")
+    option_rockf6()
+  else:
+    print(help)
+    option_rockul4()
+
+
+
+
 
 def option_rockf4():
   print (" You descend deeper into the tower and find a large rhinoceros covered in armored plating walking around the door "
@@ -284,6 +394,113 @@ def option_steelf2():
     print(help)
     option_steelf2()
 
+
+def option_steelrope():
+  print ("The shaft rope looks sturdy for taking   "
+         "What will you do :")
+  time.sleep(1)
+  print ("""  A. Go down 
+  B. Stay on this floor""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You traverse down the rope and make it to the bottom safely ")
+    option_steelb()
+  elif choice in op_B:
+    print ("You decide to stay on the current floor for safety.")
+    option_steelf3()
+  else:
+    print(help)
+    option_steelrope()
+
+
+def option_steelb():
+  print (" You managed to climb down the rope succesfully as you descend you notice emergency lights are illuminating the way "
+         " As you make your way down the passage you see an odd camel with what looks to be to hills replacing his humps"
+         "He notices you staring at him "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Take a fighting stance
+  B. Observe him
+  C. Give it your hand""")
+  choice = input(">>")
+  if choice in op_A:
+    print(" He see's you take your stance and starts to glow soon afterwards a stream of fire comes from his mouth like a flamethrower burning you alive")
+    intro()
+  elif choice in op_B:
+    print ("He stares back at you after a few moments and goes deeper into the passage.")
+    option_steelb1()
+
+  elif choice in op_C:
+    print (" He walks up to you and licks your hand then walks with you farther down .")
+    option_steelb1()  
+  else:
+    print(help)
+    option_steelb()
+
+
+def option_steelb1():
+  print ("The camel takes you to a door but you look around and see charred corpses and sillhouettes of people on the walls "
+         "You look back and see the way back is unblocked"
+         "What will you do :")
+  time.sleep(1)
+  print ("""  A. Go forward
+  B. Go back""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You proceed into the next room and are met with an empty room with documents and construction equipment scattered around ")
+    option_steelb2()
+  elif choice in op_B:
+    print ("You reach the elevator only to have your head yanked clean from the elevator door by a massive bat.")
+    intro()
+  else:
+    print(help)
+    option_steelb1()
+
+def option_steelb2():
+  print ("Upon further inspection of the room you notice holes the size of a car engine "
+         "The holes looks as if they were made some time ago "
+         "What will you do :")
+  time.sleep(1)
+  print ("""  A. Scavenge for clues 
+  B. Don't risk it""")
+  choice = input(">>")
+  if choice in op_A:
+    print(" As you read through some documents you feel a seering heat come from the wall you see a giant sluug made of magma producing heat bubbles"
+          "as you look over to door you see both exits partially melted there is no escape you quietly burn as more magma slugs begin to enter the room engulfing your body in flames.")
+    intro()
+  elif choice in op_B:
+    print ("You decide not to risk it as you go forward you notice it starts to become increasingly hot behind you the previous room is glowing .")
+    option_steelb3()
+  else:
+    print(help)
+    option_steelb2()
+
+def option_steelb3():
+  print ("You keep walking and  feel the heat coming from the front a few steps further you find a hangar with a drill the size of a commercial cruiser "
+         " Like the rest of the area its abbandoned but the ship still seems to have power"
+         "Not far from the drill is an elevator  "  
+         "What will you do :")
+  time.sleep(1)
+  print ("""  A. Take the elevator
+  B. Take the drill""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You take the elevator up which leads to the tomb of the iron golem ")
+    option_steel6()
+  elif choice in op_B:
+    print ("You decide to boad the drill luckily it has coordinates already marked and you take it up."
+           "As you wait to resurface you explore the ship to find a red orb in a containment unit and documentation explaining its origin"
+           "Groudon the land dragon although not being a dragon this creature has the ability to control and create land at will aswell as breathe fire"
+           "After further experimentation with the red orb we've concluded it grants the wielder the ability to control the earth and become one with the beast"
+           "The drill stops and tells you you've reached the iron golems tomb. ")
+    option_steelf6()
+  else:
+    print(help)
+    option_steelb3()
+
+
+
+
 def option_steelf3():
   print (" As you descend the steel tower you run into a room with steel cylinders in an odd formation    "
          "What will you do:")
@@ -319,7 +536,7 @@ def option_steelf4():
     print("He watches you closely until he deems you not a threat and shows you the way down the stairs ")
     option_steelf5()
   elif choice in op_B:
-    print ("You manage to get behind cover but the dog begins to charge an aura sphere and launches it at you")
+    print ("You manage to get behind cover but the dog begins to charge an aura sphere and launches it at you destroying you and the rock ")
     intro()
   elif choice in op_C:
     print ("You immediately get annihilated by his fist")
@@ -511,6 +728,57 @@ def option_icef4():
   else:
     print(help)
     option_icef4()
+
+
+def option_iceroom():
+  print ("As you begin to walk two more doors start to open one on the left and one on the right"
+         "Out of the corner of your eye you see a woman run into the right room"
+         "What will you do :")
+  time.sleep(1)
+  print ("""  A. Go straight
+  B. Go left
+  C. Go right""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You descend into the next chamber ")
+    option_icef5()
+  elif choice in op_B:
+    print ("You find a table with documents and treasures near each other.")
+    option_iceroom2()
+  elif choice in op_C:
+    print ("You go right, inside the room is a beast with the figure of dead woman and the presence of a ghost"
+           "She entombs you into the room and freezes you in place as the rest of your body begins to freeze and carreses your face until you become ice".)
+    intro()  
+  else:
+    print(help)
+    option_iceroom()
+
+
+def option_iceroom2():
+  print ("2 Items are on the table with some papers"
+         "A smooth purple gemstone and a green diamond shaped gem"
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Take the purple stone
+  B. Read the documents
+  C. Take the green diamond""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You take the purple stone with you.")
+    intro()#item
+  elif choice in op_B:
+    print ("You read to find out the stone belongs to deoxys a space being with physic abilities who ever wields its stone will gain his power"
+           "While the other is a failed experiment to rereate the red and blue orb and control the sky dragons power ")
+    option_iceroom2()
+  elif choice in op_C:
+    print ("You take the green gem with you. ")
+    option_icef5()  #item
+  else:
+    print(help)
+    option_iceroom2()
+
+
+
 
 def option_icef5():
   print (" You descend to the last floor to be greeted by an ice golem the door closes behind you and he awakens "
