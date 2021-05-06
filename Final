@@ -1,4 +1,5 @@
 import time
+inventory = []
 
 op_A = ["A", "a"]
 op_B = ["B", "b"]
@@ -15,12 +16,15 @@ Incantation_of_rock = 0
 Incantation_of_steel = 0
 Incantation_of_ice = 0
 small_ball = 0
-help = ("Use A,B,C,D,E or reply with a yes or no")
+help = ("Use A,B,C,D,E or reply with a yes or no"
+        "To pull up your inventory type inv")
+
+doc = open("deox.txt").read()
 
 def intro():
-  print ("You wake up in the middle of nowhere with no memory of the past events "
-  "You look around and see 5 towers in the distance although one seems abandoned"
-  ". What shall you do:")
+  print ("You wake up in the middle of nowhere with no memory of the past events\n "
+  "You look around and see 5 towers in the distance although one seems abandoned\n"
+  "What shall you do:")
   time.sleep(1)
   print ("""""  A. Enter brown tower
   B. Enter grey tower
@@ -38,7 +42,9 @@ def intro():
     option_ruin()
   elif choice in op_E:
     option_white()
-
+  elif choice == 'inv':
+    print(inventory)
+    intro()
   else:
     print (help)
     intro()
@@ -55,13 +61,16 @@ def option_rock():
     print ("You attempt to exit the tower only to be crushed by the weight of the door.")
     time.sleep(1)
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_rock()
   else:
     print(help)
     option_rock()
 
 
 def option_rockf1():
-  print ("As the crystals guide you, you reach the first floor a room filled with crystal stalagmites and stalactites :")
+  print ("As the crystals guide you, you reach the first floor a room filled with crystal stalagmites and stalactites ")
   time.sleep(1)
   print ("""  A. Walk through
   B. Explore""")
@@ -72,9 +81,12 @@ def option_rockf1():
   elif choice in op_B:
     print ("You find nothing of value and continue.")
     option_rockf2()
+  elif choice == 'inv':
+    print(inventory)
+    option_rockf1()
   else:
     print(help)
-    option_rock()
+    option_rockf1()
 
 def option_rockf2():
   print (" A small rock beast appears not much bigger than a soccer ball "
@@ -94,6 +106,9 @@ def option_rockf2():
   elif choice in op_C:
     print ("You run down a flight of stairs only to trip on a pebble and snap your neck.")
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_rockf2()
   else:
     print(help)
     option_rockf2()
@@ -109,12 +124,15 @@ def option_rockf3():
   choice = input(">>")
   if choice in op_A:
     print(" The door opens itself ")
-    option_rockfd()
+    option_rockd()
   elif choice in op_B:
     print ("Nothing happens")
     option_rockf3()
   elif choice in op_C:
     print ("Nothing happens.")
+    option_rockf3()
+  elif choice == 'inv':
+    print(inventory)
     option_rockf3()
   else:
     print(help)
@@ -137,8 +155,12 @@ def option_rockd():
     print ("You take the elevator down")
     option_rockul()
   elif choice in op_C:
-    print ("You go through to see and find .")
-    option_rockf3()
+    print ("You go through to see and find a stone garden full of fossilized plants as you take a closer look some of them seem to be moving."
+           "Not long after this realization one of the flowers hanging from the ceiling reach down and bite your head till your body goes limp")
+    intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_rockd()
   else:
     print(help)
     option_rockd()
@@ -157,7 +179,9 @@ def option_rockul():
   elif choice in op_B:
     print ("You look around only to find illegible documents from the mixture of ink and water so you decide to move forward")
     option_rockul2()
-  
+  elif choice == 'inv':
+    print(inventory)
+    option_rockul()
   else:
     print(help)
     option_rockul()
@@ -178,6 +202,9 @@ def option_rockul2():
     print ("You see an small shark with scars all over its body as it rams into the glass puncturing it causing the water to start flooding the room"
            "You begin to hear a crackling sound and to your dismay you see an exposed wire start to fall onto the floor into the puddle next to you. ")
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_rockul2()
   else:
     print(help)
     option_rockul2()
@@ -200,10 +227,13 @@ def option_rockul3():
     intro()
   elif choice in op_C:
     print ("You reach the next door and hit the emergency seal button sealing the previous door.")
-    option_rockf3()
+    option_rockul4()
+  elif choice == 'inv':
+    print(inventory)
+    option_rockul3()
   else:
     print(help)
-    option_rockf3()
+    option_rockul3()
 
 
 
@@ -219,9 +249,13 @@ def option_rockul4():
     print(" You proceed up with no issue ")
     option_rockf6()
   elif choice in op_B:
-    print ("You find out the orb belongs to the ancient see god kyogre used to control him and even give the wielder some of his power"
+    print ("You find out the orb belongs to the ancient sea god kyogre used to control him and even give the wielder some of his power"
            "After learning the abilities of the stone you decide to take it to aid on your journey.")
+    inventory.append("blue orb")
     option_rockf6()
+  elif choice == 'inv':
+    print(inventory)
+    option_rockul4()
   else:
     print(help)
     option_rockul4()
@@ -249,6 +283,9 @@ def option_rockf4():
   elif choice in op_C:
     print ("You immediately get annihilated by his rock blast")
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_rockf4()
   else:
     print(help)
     option_rockf4()
@@ -271,6 +308,9 @@ def option_rockf5():
   elif choice in op_C:
     print ("Nothing happened")
     option_rockf5()
+  elif choice == 'inv':
+    print(inventory)
+    option_rockf5()
   else:
     print(help)
     option_rockf6()
@@ -282,7 +322,8 @@ def option_rockf6():
   time.sleep(1)
   print ("""  A. Wait and see
   B. Get behind cover
-  C. Run towards him""")
+  C. Run towards him
+  D. Channel orb""")
   choice = input(">>")
   if choice in op_A:
     print("He finishes charging up his arm and punches the ground you see the spikes coming towards you "
@@ -294,6 +335,15 @@ def option_rockf6():
   elif choice in op_C:
     print ("He proceeds to punch the ground causing a line of spikes to emerge ")
     option_rockf7()
+  elif choice in op_D and 'blue orb' in inventory:
+    print('An alpha symbol begins to glow on your chest you summon a tidal wave and drown the golem')
+    option_rockf8()
+  elif choice in op_D and 'blue orb' not in inventory:
+    print('You have no orb leaving you open to the golems rockslide')
+    intro()  
+  elif choice == 'inv':
+    print(inventory)
+    option_rockf6()
   else:
     print(help)
     option_rockf6()
@@ -318,6 +368,9 @@ def option_rockf7():
   elif choice in op_C:
     print ("The ground continues to tremble and begins to split open you end up falling into the casm the golem created ")
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_rockf7()
   else:
     print(help)
     option_rockf7()
@@ -330,12 +383,14 @@ def option_rockf8():
   choice = input(">>")
   if choice in yes:
     print("You manage to read the incantation and learned it")
-    Incantation_of_rock = 1
+    inventory.append("Incantation of rock")
     intro()
   elif choice in no:
     print ("You took the teleporter back to where you started ")
-    Incantation_of_rock = 0
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_rockf8()
   else:
     print(help)
     option_rockf8()
@@ -354,6 +409,9 @@ def option_steel():
     print ("You attempt to exit the tower only to be crushed by the weight of the door.")
     time.sleep(1)
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_steel()  
   else:
     print(help)
     option_steel()
@@ -373,6 +431,9 @@ def option_steelf1():
   elif choice in op_B:
     print ("You stay quiet and whatever was there disappeared.")
     option_steelf2()
+  elif choice == 'inv':
+    print(inventory)
+    option_steelf1()  
   else:
     print(help)
     option_steelf1()
@@ -386,10 +447,13 @@ def option_steelf2():
   choice = input(">>")
   if choice in op_A:
     print("You hop off the elevator for it to close and go down by it self ")
-    option_steelf3()
+    option_steelrope()
   elif choice in op_B:
     print ("The elevator shaft closes and speeds to bottom causing you to be crushed.")
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_steelf2()  
   else:
     print(help)
     option_steelf2()
@@ -408,6 +472,9 @@ def option_steelrope():
   elif choice in op_B:
     print ("You decide to stay on the current floor for safety.")
     option_steelf3()
+  elif choice == 'inv':
+    print(inventory)
+    option_steelrope()  
   else:
     print(help)
     option_steelrope()
@@ -432,7 +499,10 @@ def option_steelb():
 
   elif choice in op_C:
     print (" He walks up to you and licks your hand then walks with you farther down .")
-    option_steelb1()  
+    option_steelb1()
+  elif choice == 'inv':
+    print(inventory)
+    option_steelb()  
   else:
     print(help)
     option_steelb()
@@ -452,6 +522,9 @@ def option_steelb1():
   elif choice in op_B:
     print ("You reach the elevator only to have your head yanked clean from the elevator door by a massive bat.")
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_steelb1()  
   else:
     print(help)
     option_steelb1()
@@ -471,6 +544,9 @@ def option_steelb2():
   elif choice in op_B:
     print ("You decide not to risk it as you go forward you notice it starts to become increasingly hot behind you the previous room is glowing .")
     option_steelb3()
+  elif choice == 'inv':
+    print(inventory)
+    option_steelb2()  
   else:
     print(help)
     option_steelb2()
@@ -493,7 +569,11 @@ def option_steelb3():
            "Groudon the land dragon although not being a dragon this creature has the ability to control and create land at will aswell as breathe fire"
            "After further experimentation with the red orb we've concluded it grants the wielder the ability to control the earth and become one with the beast"
            "The drill stops and tells you you've reached the iron golems tomb. ")
+    inventory.append("red orb")
     option_steelf6()
+  elif choice == 'inv':
+    print(inventory)
+    option_steelb3()  
   else:
     print(help)
     option_steelb3()
@@ -518,6 +598,9 @@ def option_steelf3():
   elif choice in op_C:
     print ("Nothing happens.")
     option_steelf3()
+  elif choice == 'inv':
+    print(inventory)
+    option_steelf3()  
   else:
     print(help)
     option_steelf3()
@@ -541,6 +624,9 @@ def option_steelf4():
   elif choice in op_C:
     print ("You immediately get annihilated by his fist")
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_steelf4()  
   else:
     print(help)
     option_steelf4()
@@ -563,6 +649,9 @@ def option_steelf5():
   elif choice in op_C:
     print ("Nothing happened")
     option_steelf5()
+  elif choice == 'inv':
+    print(inventory)
+    option_steelf5()  
   else:
     print(help)
     option_steelf5()
@@ -574,7 +663,8 @@ def option_steelf6():
   time.sleep(1)
   print ("""  A. Wait and see
   B. Get behind cover
-  C. Run towards him""")
+  C. Run towards him
+  D. Channel orb""")
   choice = input(">>")
   if choice in op_A:
     print("He continues to wait for your next move")
@@ -585,6 +675,16 @@ def option_steelf6():
   elif choice in op_C:
     print ("He proceeds to charge a beam and blast you to smithereens  ")
     intro()
+  elif choice in op_D and 'red orb' in inventory:
+    print("An omega symbol begins to glow on your chest you and a desolate land begins to emerge"
+          "the golem stuck in place begins to melt as you walk towards him you launch a fire blast and end him")
+    option_steelf8()
+  elif choice in op_D and 'red orb' not in inventory:
+    print('You have no orb leaving you open to the golems zap cannon')
+    intro()  
+  elif choice == 'inv':
+    print(inventory)
+    option_steelf6()  
   else:
     print(help)
     option_steelf6()
@@ -610,6 +710,9 @@ def option_steelf7():
            "gives you his core and points to the incantation then shuts down ")
     Steel_core = 1
     option_steelf8()
+  elif choice == 'inv':
+    print(inventory)
+    option_steelf7()  
   else:
     print(help)
     option_steelf7()
@@ -623,12 +726,14 @@ def option_steelf8():
   choice = input(">>")
   if choice in yes:
     print("You manage to read the incantation and learned it")
-    Incantation_of_steel = 1
+    inventory.append("Incantation_of_steel")
     intro()
   elif choice in no:
     print ("You took the teleporter back to where you started ")
-    Incantation_of_steel = 0
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_steelf8()  
   else:
     print(help)
     option_steelf8()
@@ -647,6 +752,9 @@ def option_ice():
     print ("You attempt to exit the tower only to be impaled by the ice.")
     time.sleep(1)
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_ice()  
   else:
     print(help)
     option_ice()
@@ -665,6 +773,9 @@ def option_icef1():
   elif choice in op_B:
     print ("You take the slide and make it down to the next floor.")
     option_icef2()
+  elif choice == 'inv':
+    print(inventory)
+    option_icef1()  
   else:
     print(help)
     option_icef1()
@@ -682,6 +793,9 @@ def option_icef2():
   elif choice in op_B:
     print ("The bird becomes aggravated and shoots an ice beam at you.")
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_icef2()  
   else:
     print(help)
     option_icef2()
@@ -703,6 +817,9 @@ def option_icef3():
   elif choice in op_C:
     print ("The door opens itself.")
     option_icef4()
+  elif choice == 'inv':
+    print(inventory)
+    option_icef3()  
   else:
     print(help)
     option_icef3()
@@ -724,7 +841,10 @@ def option_icef4():
     option_icef4()
   elif choice in op_C:
     print ("The door lights up and opens")
-    option_icef5()
+    option_iceroom()
+  elif choice == 'inv':
+    print(inventory)
+    option_icef4()  
   else:
     print(help)
     option_icef4()
@@ -747,8 +867,11 @@ def option_iceroom():
     option_iceroom2()
   elif choice in op_C:
     print ("You go right, inside the room is a beast with the figure of dead woman and the presence of a ghost"
-           "She entombs you into the room and freezes you in place as the rest of your body begins to freeze and carreses your face until you become ice".)
-    intro()  
+           "She entombs you into the room and freezes you in place as the rest of your body begins to freeze and carreses your face until you become ice")
+    intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_iceroom()  
   else:
     print(help)
     option_iceroom()
@@ -761,18 +884,22 @@ def option_iceroom2():
   time.sleep(1)
   print ("""  A. Take the purple stone
   B. Read the documents
-  C. Take the green diamond""")
+  C. Take the green gem""")
   choice = input(">>")
   if choice in op_A:
     print("You take the purple stone with you.")
-    intro()#item
+    inventory.append("purple stone")
+    option_icef5()
   elif choice in op_B:
-    print ("You read to find out the stone belongs to deoxys a space being with physic abilities who ever wields its stone will gain his power"
-           "While the other is a failed experiment to rereate the red and blue orb and control the sky dragons power ")
+    print(doc)
     option_iceroom2()
   elif choice in op_C:
     print ("You take the green gem with you. ")
-    option_icef5()  #item
+    inventory.append("green gem")
+    option_icef5()  
+  elif choice == 'inv':
+    print(inventory)
+    option_iceroom2()  
   else:
     print(help)
     option_iceroom2()
@@ -787,7 +914,8 @@ def option_icef5():
   time.sleep(1)
   print ("""  A. Wait
   B. Dodge
-  C. Slip""")
+  C. Slip
+  D. Stare into the stone""")
   choice = input(">>")
   if choice in op_A:
     print("The ice beam freezes you in place and kills you")
@@ -798,6 +926,16 @@ def option_icef5():
   elif choice in op_C:
     print ("You slide across the floor reaching him   ")
     option_icef6()
+  elif choice in op_D and 'purple stone' in inventory:
+    print ("You stare at the stone and it responds a purple slit opens on your forehead \n"
+           "You crush the golem with your new psychic abilities turning the golem into shaved ice")
+    option_icef7()
+  elif choice in op_D and 'purple stone' not in inventory:
+    print("The golem launches an ice beam and freezes you in place")
+    intro()  
+  elif choice == 'inv':
+    print(inventory)
+    option_icef5()  
   else:
     print(help)
     option_icef5()
@@ -822,6 +960,9 @@ def option_icef6():
     print ("You kneel on one leg with your arms crossed as if preparing for the attack "
            "not phased the ice beam lands and freezes your entire body  ")
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_icef6()  
   else:
     print(help)
     option_icef6()
@@ -835,12 +976,14 @@ def option_icef7():
   choice = input(">>")
   if choice in yes:
     print("You manage to read the incantation and learned it")
-    Incantation_of_ice = 1
+    inventory.append("Incantation_of_ice")
     intro()
   elif choice in no:
     print ("You took the teleporter back to where you started ")
-    Incantation_of_ice = 0
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_icef7()  
   else:
     print(help)
     option_icef7()
@@ -851,12 +994,14 @@ def option_ruin():
          "Take it Y/N ")
   choice = input(">>> ")
   if choice in yes:
-    small_ball = 1
+    inventory.append("small white ball")
     option_ruinf1()
 
   elif choice in no:
-    small_ball = 0
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_ruin()  
   else:
     print(help)
     option_ruin()
@@ -890,6 +1035,9 @@ def option_ruinf10():
   elif choice in op_C:
     print ("You wait for your demise as you praise the sun and embrace its warmth ")
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_ruinf10()  
   else:
     print(help)
     option_ruinf10()
@@ -908,6 +1056,9 @@ def option_white():
     print ("You exit the tower safely.")
     time.sleep(1)
     intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_white()  
   else:
    print(help)
   option_white()
@@ -915,17 +1066,31 @@ def option_white():
 
 def option_whitef1():
   print ("You ascend the tower to fight the final boss the blood starved beast comes out \n "
-         "screeching to the heavens:")
+         "screeching to the heavens \n"
+         "What will you do:")
   time.sleep(1)
   print ("""  A. Channel
-  B. Fight """)
+  B. Fight
+  C. Improvise""")
   choice = input(">>")
-  if choice in op_A:
-    print(" The blood starved beast is dead ")
+  if choice in op_A and 'red orb' in inventory:
+    print(" You tightly clench the red orb as you channel the power of groudon causing a marking to appear on your skin"
+          "You launch a few fireballs at the beast killing it ")
+    option_whitef2()
+
+  if choice in op_A and 'red orb' not in inventory:
+    print("The beast sees you open and slashes your throat")
     intro()
   elif choice in op_B:
-    print ("You stay quiet and whatever was there disappeared.")
-    option_icef2()
+    print ("You try and fight but can't do much without a weapon so the beast consumes you")
+    intro()
+  elif choice in op_C:
+    print ("You look around and see an empty bottle you quickly scrounge around and make a molotov"
+           "The moltov burns the beast with ease leaving not even a single ash")
+    option_whitef2()  
+  elif choice == 'inv':
+    print(inventory)
+    option_whitef1()  
   else:
     print(help)
     option_whitef1()
@@ -938,15 +1103,268 @@ def option_whitef2():
   print ("""  A. Incantation
   B. Teleport home""")
   choice = input(">>")
-  if choice in op_A:
-    print("print Reggigigas has been sealed")
-    gg()
+  if choice in op_A and 'Incantation_of_rock'and'Incantation_of_steel'and'Incantation_of_ice' in inventory:
+    print(" A body of rock\n"
+          "A body of steel\n"
+          "A body of Ice\n"
+          "Regigigas has awoken")
+    option_whitef3()
+  elif choice in op_A and 'Incantation_of_rock'and'Incantation_of_steel'and'Incantation_of_ice' not in inventory:
+    print("You're missing an incantation")
+    option_whitef2()
   elif choice in op_B:
     print ("You take the teleporter home and go back to your normal life.")
     gg()
+  elif choice == 'inv':
+    print(inventory)
+    option_whitef2()  
   else:
     print(help)
     option_whitef2()
+
+
+def option_whitef3():
+  print (" With the knowledge you've gained exploring the ruins you managed to awaken the sleeping giant the king of the golems"
+         "Observing you as it makes a judgement it deems you worthy then lets out a cry robotic and chilling "
+         "Two other golems begin two awaken and begin to start walking to him you notice one appears to be shaped as a dragon head the other an electric blimp"
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Wait
+  B. Channel red orb
+  C. Channel blue orb
+  D. Channel jade gem
+  E. Channel purple stone""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You wait and see what will become of the other golems and each begins to merge with one of the kings arms "
+          " bestowing the right dragons might the left lightnings switfness"
+          "Seeing that you waited for the king he is willing to give you a chance and lets you choose a weapon")
+    option_whitek()
+  elif choice in op_B and 'red orb' in inventory:
+    print ("You try channeling the red orbs power but it becomes one with you ")
+    option_whitero()
+  elif choice in op_B and 'red orb' not in inventory:
+    print("The king launches a flash cannon and obliterates you")
+    intro()
+  elif choice in op_C and 'blue orb' in inventory:
+    print ("You try channeling the blue orbs power but it becomes one with you ")
+    option_whitebo()
+  elif choice in op_C and 'blue orb' not in inventory:
+    print("The king launches a flash cannon and obliterates you")
+    intro()  
+  elif choice in op_D:
+    print ("You try channeling the jades power but to no avail you're impaled by the kings spear of ice  ")
+    intro()
+  elif choice in op_E and 'purple stone' in inventory:
+    print ("You try channeling the purple stone but it instead merges into the center of your chest your left arm begins to seperate into two"
+           "the takeover process begins"
+           "with the few moments you have to spare you try calling out to deoxys it responds asking for a body you make a deal with a space alien for a new body"
+           "With deoxys psyhic abilities you make quick work of the king stopping both golems from merging with his arms and taking out his cores with ease"
+           "satisfied the being uses the kings corpse for a new body rewriting his structure and reverting yours, he lets out a cry after completion and flys into space.  ")
+    gg()
+  elif choice in op_E and 'purple stone' not in inventory:
+    print("The king launches a flash cannon and obliterates you")
+    intro()  
+  elif choice == 'inv':
+    print(inventory)
+    option_whitef3()  
+  else: 
+    print(help)
+    option_whitef3()    
+
+def option_whitebo():
+  print (" You feel a primordial anger begin to dwell inside you \n"
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Let it out
+  B. Control it""")
+  choice = input(">>")
+  if choice in op_A:
+    print("Consumed by the anger you body begins to change marking of the sea god become plastered onto your body and grow gills"
+          "You launch a water spout at the king with enough psi to shred his body to pieces "
+          "The anger kwelled the orb leaves your body and a soft thank you is heard"
+          "You stopped the golem king and obtained the blue orb")
+    
+    gg()
+  elif choice in op_B:
+    print ("You fail to control it causing kyogre to take over and use you as a vessel to help create his ideal world \n"
+           "The oceans begin to start filling all of the worlds land masses as this is happening the tower begins to become flooded\n"
+           "the king in an attempt to stop it tries freezing the water but only manages to freeze himself\n"
+           "the world is your ocean now as kyogre appears offering you a place you accept and ride with him to shape this new world\n"
+           "You defeated the king and became the sea gods weapon\n")
+    gg()
+  elif choice == 'inv':
+    print(inventory)
+    option_whitebo()  
+  else:
+    print(help)
+    option_whitebo()
+
+def option_whitero():
+  print (" You feel a primordial anger begin to dwell inside you \n "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Control it
+  B. Let it out
+  C. Calm down""")
+  choice = input(">>")
+  if choice in op_A:
+    print("Groudon power proves to be to much for you and goes out of control so much so it triggers a primal reversion"
+          "Your skin begins to burnt and dried with marking of the beast and an omega symbol glowing on your chest "
+          "You begin a blind rampage causing plates to begin to shift over the world the king attempts to make an attack but cannot move forward due to the heat "
+          "a field of desolate land is created as this is done your body begins to explode with anger causing volcanoes and mountains to begin forming  "
+          "the king is left in a tomb of ash as another beast begins to rise from the volcano groudon makes his appearance and begins to reshape the world")
+    
+    option_icef7()
+  elif choice in op_B:
+    print ("Marking begin to appear on your skin and begin to glow you feel the anger start to lessen but feel control over his power "
+           "You make your way to the king he claps both of his hands together to make a shockwave but it is already to late"
+           "You jump only to land on the king and imbed his body on a plate of earth spikes taking out some of his cores"
+           "The king is confused you take the oppurtunity and burn the other core of the king killing him in the proccess as the rest of his body burns"
+           "You defeated the King and became one with the land dragon")
+    gg()
+  elif choice in op_C:
+    print ("You try you're best to calm down groudon and it works  "
+           "the king sees you reverted back and shoots a boulder at crushing you  "
+           "You were defeated by the king")
+    intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_whitero()  
+  else:
+    print(help)
+    option_whitero()
+
+def option_whitek():
+  print (" The king pleased to see you waited he gives you the option of a weapon to face him as an act of kindness "
+         "with his eyes glowing bright yellow he dosen't wait for you and fires an ice beam "
+         "What will you choose:")
+  time.sleep(1)
+  print ("""  A. Refuse
+  B. Palkia's Spear
+  C. Dialga's blade
+  D. Giratinas wings""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You refuse the kings offer which he responds with a fire blast across the field melting the ice not realizing you stop on a puddle of water"
+          "The king shoots a bolt of thunder electrocuting you"
+          "You Died")
+    intro()
+  elif choice in op_B:
+    print ("You take Palkias spear ")
+    option_whitekp()
+  elif choice in op_C:
+    print ("You decide to take Dialgas blade")
+    option_whitekd()
+  elif choice in op_D:
+    print ("You become shrouded in darkness as a mist of darkness covers your body changes your body   ")
+    option_whitekg()
+  elif choice == 'inv':
+    print(inventory)
+    option_whitek()  
+  else:
+    print(help)
+    option_whitek()
+
+def option_whitekp():
+  print (" The king acknowledges your weapon choice you fiddle around with the spear and see its to your liking and prepare yourself by taking a stance"
+         "The king in turn readies a stance ready to answer your fighting spirit"
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Defensive stance
+  B. Attack stance
+  C. Head first""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You take the spear and ready yourself the king joyyed at your determination causes an earthquake and seeps molten steel into the field"
+          "you take the oppurtunity and lunge forward to the king seeing an opening unknown to you the spear begins glowing and creates a spatial rift stabbing one of the kings cores"        
+          "You see this and take advantage of the spears range but before you can take the kings last core he molds the steel from earlier into a spear impaling you"
+          "Luckily the spear he shot went through a rift minimizing the damage leaving the king without a core and you with minor wounds"
+          "You,ve deafeted the golem king with some damage and managed to salvage Palkias spear")
+    gg()
+  elif choice in op_B:
+    print ("You notice the spear begin to glow at its core you try to swing and see it opens spacial rifts with each swing it takes "
+           "The king creates an ice cage around him through the bars he shoots fire blasts to create water puddles you see through his plan and run towards him" 
+           "the king about to shoot a lightning blast near you but you stab diagnally aiming into his right arm joint severing electric ability"
+           "the king seeing you in range creates a steel cage with no option for escape you take multiple swings each swing taking a core with it"
+           "As a final farewell the king decides to self destruct realizing this you poke a hole in the ground creating a rift to escape"
+           "You escaped safe and sound but the orb of the spear was destroyed")
+    gg()
+  elif choice in op_C:
+    print ("You run head first to the king he attempts to throw a lightning blast but you vault over it stabbing one of his cores"
+           "As a few seconds past you realize your vision begin to become fuzzy your head rolls off as your see the spear cut clean through your neck and the kings core"
+           "You were bested by the spear The Golem King laughs at you")
+    intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_whitekp()  
+  else:
+    print(help)
+    option_whitekp()
+
+def option_whitekd():
+  print (" The king acknowledges your weapon choice and prepares himself"
+         "Suprised by the kings reaction you inspect the blade and see a gem plastered by the hilt it feels as if time is being altered "
+         "The King is dissipating heat it seems he's readying an attack "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Challenge the king head on
+  B. Defend the kings attack""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You go full force and begin to swing your sword at the king but it seems to be doing nothing the kings heat is still rising  "
+          "You take multiple strikes at his cores but to no avail the king seems to be reaching his limit so you decide to run"
+          "You feel time start to slowdown and you see each of the swings you made in motion still there as the king is finally ready you realize the scabbard is glowing"
+          "You sheathe the blade for all the slashes to finally land and the king falls"
+          "You,ve deafeted the Golem King without breaking a sweat and Gained Dialga's time blade")
+    gg()
+  elif choice in op_B:
+    print ("You try to defend the kings oncoming attack until you realize he's trying to end the fight in one go"
+           "all of his cores begin to glow as he readys to take a massive leap you realize its to late and he makes a giga impact destroying the entire building"
+           "the king exits out of the ruble and cries as the other golems begin to join him"         
+           "You've been defeated by the Golem King")
+    intro()
+  elif choice == 'inv':
+    print(inventory)
+    option_whitekd()  
+  else:
+    print(help)
+    option_whitekd()
+          
+def option_whitekg():
+  print (" The king acknowledges your weapon choice but you seem to be having difficulties accepting his gift"
+         "The king readies a stance "
+         "What will you do:")
+  time.sleep(1)
+  print ("""  A. Accept the darkness
+  B. Reject the darkness
+  C. Meditate""")
+  choice = input(">>")
+  if choice in op_A:
+    print("You accept the power of darkness but at the cost of corrupting your soul and becoming unhinged "
+          "The king shoots a lightningt blast but you phase through it with giratinas shadow force granting you immunity for a single strike"
+          "You take the strike ripping out one of his cores but proceed to zip through him ripping out a core more violently and faster than the last"
+          "You,ve deafeted the golem king at the cost of your purity")
+    gg()
+  elif choice in op_B:
+    print ("You try to reject the darkness but fail and become consumed by the darkness causing giratinas wings begin to take form"
+           "with miasma covering your body it begins to form an amror consuming your skin and corroding your body slowly the king attacks"
+           "the king launches the dragon head at you the armor in control of your body partially dodges it only taking your arm with it"
+           "the armor recreates an arm out miasma furios your body lashes out at the king ripping out all the kings cores leaving a limp corpse hanging in a tree of shadows"
+           "You've defeated the Golem king at the cost of your humanity")
+    gg()
+  elif choice in op_C:
+    print ("You manage to balance the power of giratinas wings allowing you to manipulate shadows at will "
+           "Content the king attempts to launch an attack but you bind him with the shadows in the room "
+           "As you rip out the final core out of the king he kneels acknowledging your power and deactivating"
+           "You've deafeated the Golem king gaining his respect and the power of Giratina the shadow dragon ruler of the underworld")
+    gg()
+  elif choice == 'inv':
+    print(inventory)
+    option_whitekg()  
+  else:
+    print(help)
+    option_whitekg()
 
 def gg():
   print("Congratulations you beat the game")
